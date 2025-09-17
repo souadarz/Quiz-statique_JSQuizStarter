@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSQuizStarter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="screen active" id="startTest">
+            <h1>JSQuizStarter</h1>
+            <div class="userName">
+                <label for="">Entrez votre nom d'utilisateur</label>
+                <input type="text" id="usernameInput">
+                <p id="errorMsg" style="color: red; display:none;">Veuillez entrer votre nom d'utilisateur</p>
+            </div>
+            <p>Vous etes pres pour tester votre connaissances ?</p>
+            <!-- <button id="startBtn">Commencer</button> -->
+            <p>Choisir une categorie pour commencer</p>
+            <div class="categories">
+                <div class="cat">JavaScript</div>
+                <div class="cat">Node.js</div>
+                <div class="cat">Bases de données</div>
+            </div>
+
+        </div>
+        <div class="screen" id="questionReponse">
+            <div class="header">
+                <h2 id="question">les questions</h2>
+                <div class="testInfo">
+                    <p>Question <span>1</span> de <span>10</span></p>
+                    <p>Temps:<span></span></p>
+                </div>
+            </div>
+            <div class="reponses" id="reponses">
+                <!-- <label><input type="checkbox" >les reponses seront ici</label>
+                <label><input type="checkbox" >C'set un langage de programmation</label>
+                <label><input type="checkbox" >C'set un environnement d'éxecution js</label>
+                <label><input type="checkbox" >C'set un environnement d'éxecution js</label> -->
+            </div>
+        </div>
+        <div class="screen" id="result"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
