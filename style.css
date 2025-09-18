@@ -110,7 +110,7 @@ p{
 .reponses{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
 }
 
 .answer{
@@ -134,3 +134,33 @@ p{
     display: none;
 }
 
+.timeUsername{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+#nextBtn{
+    padding: 10px;
+    border-radius: 15px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.btns{
+    display: flex;
+    justify-content: space-between;
+}
+
+#submitBtn{
+    padding: 10px;
+    border-radius: 15px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 15px;
+    /* background: violet; */
+}
+
+.selected{
+    background: rgb(114, 5, 98);
+}

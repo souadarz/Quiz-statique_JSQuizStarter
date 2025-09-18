@@ -3,6 +3,7 @@ const data = [
     categorie: "JavaScript",
     questions: [
       {
+        type: "multiple",
         question: "Que signifie NaN en JavaScript ?",
         reponses: [
           "Not a Node",
@@ -10,9 +11,10 @@ const data = [
           "New array Number",
           "No assigned Name",
         ],
-        reponse_correct: 1,
+        reponse_correct: [1,2],
       },
       {
+        type: "single",
         question:
           "Quelle méthode transforme une chaîne JSON en objet JavaScript ?",
         reponses: [
@@ -21,23 +23,26 @@ const data = [
           "JSON.toObject()",
           "parse.JSON()",
         ],
-        reponse_correct: 1,
+        reponse_correct: [1],
       },
       {
+        type: "single",
         question: "Quelle est la portée d'une variable déclarée avec let ?",
         reponses: ["Globale", "Bloc", "Fonction", "Module"],
-        reponse_correct: 1,
+        reponse_correct: [1],
       },
       {
+        type: "multiple",
         question: "Quel mot-clé permet de définir une constante ?",
         reponses: ["var", "const", "let", "static"],
-        reponse_correct: 1,
+        reponse_correct: [0,1,3],
       },
       {
+        type: "single",
         question:
           "Comment écrire un commentaire sur une seule ligne en JavaScript ?",
         reponses: ["<!-- -->", "//", "/* */", "#"],
-        reponse_correct: 1,
+        reponse_correct: [1],
       },
     ],
   },
@@ -52,25 +57,25 @@ const data = [
           "Compiler du code C++",
           "Remplacer le navigateur",
         ],
-        reponse_correct: 0,
+        reponse_correct: [0],
       },
       {
         question:
           "Quel module intégré permet de créer un serveur HTTP en Node.js ?",
         reponses: ["fs", "http", "events", "net"],
-        reponse_correct: 1,
+        reponse_correct: [1],
       },
       {
         question:
           "Quel gestionnaire de paquets est installé avec Node.js par défaut ?",
         reponses: ["yarn", "npm", "pnpm", "composer"],
-        reponse_correct: 1,
+        reponse_correct: [1],
       },
       {
         question:
           "Quelle méthode est utilisée pour lire un fichier en Node.js ?",
         reponses: ["fs.read()", "fs.readFile()", "fs.load()", "file.open()"],
-        reponse_correct: 1,
+        reponse_correct: [1],
       },
       {
         question: "Que permet d'utiliser 'require' en Node.js ?",
@@ -80,7 +85,7 @@ const data = [
           "Compiler le code",
           "Définir une classe",
         ],
-        reponse_correct: 0,
+        reponse_correct: [0],
       },
     ],
   },
@@ -136,6 +141,13 @@ const questions = document.getElementById("questionReponse");
 const start = document.getElementById("startTest");
 const question = document.getElementById("question");
 const reponses = document.getElementById("reponses");
+const nextBtn = document.getElementById("nextBtn");
+// const submitBtn = document.getElementById("submitBtn");
+const time = document.getElementById("time");
+const username = document.getElementById("username");
+let currentIndex = 0;
+let selectedQuestions = [];
+let timerQuestion;
 
 categories.forEach((cat) => {
   cat.addEventListener("click", () => {
@@ -150,34 +162,92 @@ categories.forEach((cat) => {
       questions.classList.add("active");
       start.classList.remove("active");
       const selectedCat = cat.textContent.trim();
-      console.log("la catégoie choisie :", selectedCat);
+      console.log("la categoie choisie :", selectedCat);
       const selectedData = data.find((d) => d.categorie === selectedCat);
+      selectedQuestions = selectedData.questions;
+      // console.log("les questions",selectedQuestions);
       if (selectedData) {
-        showQuestions(selectedData.questions);
+        showQuestions(selectedQuestions, currentIndex);
       }
     }
   });
 });
 
-function showQuestions(questions) {
+function showQuestions(questionArray, index) {
+  // console.log("inside showQuestion fct");
   question.innerHTML = "";
   reponses.innerHTML = "";
-  questions.forEach((q) => {
-    question.textContent = q.question;
-    q.reponses.forEach((rep, index) => {
-      const input = document.createElement("input");
-      input.value = rep;
-      input.id = `answer-${index}`;
-      input.classList.add("answer");
-    //   input.type = "radio";
-    //   reponses.appendChild(input);
 
-      const label = document.createElement("label");
-      label.htmlFor = input.id;
-      label.textContent = rep;
+  const qest = questionArray[index];
+  question.textContent = qest.question;
+  qest.reponses.forEach((rep, i) => {
+    const input = document.createElement("input");
+    input.value = rep;
+    input.id = `answer-${i}`;
+    input.type = questionArray[index].type == "multiple" ? "checkbox" : "radio";
 
-      reponses.appendChild(input);
-      reponses.appendChild(label);
-    });
+    const label = document.createElement("label");
+    label.htmlFor = input.id;
+    label.textContent = rep;
+    label.classList.add("answer");
+    input.addEventListener("click", () => {
+      // console.log(input.type);
+      if ((input.type === "radio")) {
+        // console.log("inside if")
+        document.querySelectorAll(".answer").forEach((label) => label.classList.remove("selected"));
+        label.classList.add("selected");
+      }else{
+        // console.log("inside else");
+        label.classList.toggle("selected");
+      }
+      nextBtn.disabled = false;
+    });  
+
+    reponses.appendChild(input);
+    reponses.appendChild(label);
   });
+  stopTimer(timerQuestion);
+  timerQuestion = timer(10);
 }
+
+nextBtn.addEventListener("click", () => {
+  if (currentIndex < selectedQuestions.length - 1) {
+    currentIndex++;
+    stopTimer(timerQuestion);
+    nextBtn.disabled = true;
+    showQuestions(selectedQuestions, currentIndex);
+    // localStorage;setItem("")
+  } else {
+    alert("quiz terminé");
+  }
+});
+
+function timer(count){
+  let t = setInterval(function(){
+    // console.log(count);
+    time.textContent= count;
+    count--;
+    if(count < 0){
+      stopTimer(t);
+      nextBtn.disabled = false;
+      nextBtn.click();
+    }
+  },1000);
+  return t;
+}
+
+function stopTimer(timer){
+  clearInterval(timer)
+}
+
+username.textContent = localStorage.getItem("username");
+
+// submitBtn.addEventListener("click", ()=>{
+//    if (currentIndex < selectedQuestions.length - 1) {
+//     currentIndex++;
+//     showQuestions(selectedQuestions, currentIndex);
+
+//   } else {
+//     alert("quiz terminé");
+//   }
+// })
