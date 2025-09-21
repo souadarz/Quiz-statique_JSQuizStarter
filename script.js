@@ -6,19 +6,37 @@ const data = [
       {
         type: "multiple",
         question: "Quels sont les types de données primitifs en JavaScript ?",
-        reponses: ["String", "Number", "Boolean", "Object", "Undefined", "Symbol"],
-        reponse_correct: [0,1,2,4,5],
+        reponses: [
+          "String",
+          "Number",
+          "Boolean",
+          "Object",
+          "Undefined",
+          "Symbol",
+        ],
+        reponse_correct: [0, 1, 2, 4, 5],
       },
       {
         type: "single",
-        question: "Quelle méthode transforme une chaîne JSON en objet JavaScript ?",
-        reponses: ["JSON.stringify()", "JSON.parse()", "JSON.toObject()", "parse.JSON()"],
+        question:
+          "Quelle méthode transforme une chaîne JSON en objet JavaScript ?",
+        reponses: [
+          "JSON.stringify()",
+          "JSON.parse()",
+          "JSON.toObject()",
+          "parse.JSON()",
+        ],
         reponse_correct: [1],
       },
       {
         type: "multiple",
         question: "Que signifie NaN en JavaScript ?",
-        reponses: ["Not a Node", "Not a Number", "New array Number", "No assigned Name"],
+        reponses: [
+          "Not a Node",
+          "Not a Number",
+          "New array Number",
+          "No assigned Name",
+        ],
         reponse_correct: [1],
       },
       {
@@ -31,11 +49,12 @@ const data = [
         type: "multiple",
         question: "Quels mots-clés permettent de déclarer une variable ?",
         reponses: ["var", "const", "let", "define"],
-        reponse_correct: [0,1,2],
+        reponse_correct: [0, 1, 2],
       },
       {
         type: "single",
-        question: "Comment écrire un commentaire sur une seule ligne en JavaScript ?",
+        question:
+          "Comment écrire un commentaire sur une seule ligne en JavaScript ?",
         reponses: ["<!-- -->", "//", "/* */", "#"],
         reponse_correct: [1],
       },
@@ -47,21 +66,24 @@ const data = [
       },
       {
         type: "multiple",
-        question: "Quelles méthodes sont utilisées pour itérer sur un tableau ?",
+        question:
+          "Quelles méthodes sont utilisées pour itérer sur un tableau ?",
         reponses: ["forEach", "map", "filter", "reduce", "loop()"],
-        reponse_correct: [0,1,2,3],
+        reponse_correct: [0, 1, 2, 3],
       },
       {
         type: "single",
-        question: "Quelle structure permet de gérer les promesses plus facilement ?",
+        question:
+          "Quelle structure permet de gérer les promesses plus facilement ?",
         reponses: ["Callbacks", "Async/Await", "EventEmitter", "Interval"],
         reponse_correct: [1],
       },
       {
         type: "multiple",
-        question: "Quelles opérations sont considérées comme falsy en JavaScript ?",
+        question:
+          "Quelles opérations sont considérées comme falsy en JavaScript ?",
         reponses: ["0", "''", "null", "undefined", "NaN", "false", "[]"],
-        reponse_correct: [0,1,2,3,4,5],
+        reponse_correct: [0, 1, 2, 3, 4, 5],
       },
     ],
   },
@@ -89,13 +111,15 @@ const data = [
       },
       {
         type: "single",
-        question: "Quel gestionnaire de paquets est installé avec Node.js par défaut ?",
+        question:
+          "Quel gestionnaire de paquets est installé avec Node.js par défaut ?",
         reponses: ["yarn", "npm", "pnpm", "composer"],
         reponse_correct: [1],
       },
       {
         type: "single",
-        question: "Quelle méthode est utilisée pour lire un fichier en Node.js ?",
+        question:
+          "Quelle méthode est utilisée pour lire un fichier en Node.js ?",
         reponses: ["fs.read()", "fs.readFile()", "fs.load()", "file.open()"],
         reponse_correct: [1],
       },
@@ -114,11 +138,12 @@ const data = [
         type: "multiple",
         question: "Quels objets globaux sont disponibles dans Node.js ?",
         reponses: ["__dirname", "process", "window", "module", "exports"],
-        reponse_correct: [0,1,3,4],
+        reponse_correct: [0, 1, 3, 4],
       },
       {
         type: "single",
-        question: "Quel est le fichier d'entrée par défaut d'une application Node.js ?",
+        question:
+          "Quel est le fichier d'entrée par défaut d'une application Node.js ?",
         reponses: ["server.js", "index.js", "main.js", "app.js"],
         reponse_correct: [1],
       },
@@ -126,11 +151,12 @@ const data = [
         type: "multiple",
         question: "Quels modules intégrés permettent de gérer les fichiers ?",
         reponses: ["fs", "path", "http", "crypto"],
-        reponse_correct: [0,1],
+        reponse_correct: [0, 1],
       },
       {
         type: "single",
-        question: "Quel mot-clé permet de déclarer un module ES dans Node.js (ESM) ?",
+        question:
+          "Quel mot-clé permet de déclarer un module ES dans Node.js (ESM) ?",
         reponses: ["require", "export/import", "define", "module.exports"],
         reponse_correct: [1],
       },
@@ -138,7 +164,7 @@ const data = [
         type: "multiple",
         question: "Quels frameworks peuvent être utilisés avec Node.js ?",
         reponses: ["Express", "NestJS", "Next.js", "Laravel"],
-        reponse_correct: [0,1,2],
+        reponse_correct: [0, 1, 2],
       },
     ],
   },
@@ -194,13 +220,13 @@ const data = [
         type: "multiple",
         question: "Quels SGBD sont relationnels ?",
         reponses: ["MySQL", "PostgreSQL", "MongoDB", "SQLite"],
-        reponse_correct: [0,1,3],
+        reponse_correct: [0, 1, 3],
       },
       {
         type: "multiple",
         question: "Quels SGBD supportent le langage SQL ?",
         reponses: ["MySQL", "PostgreSQL", "Oracle", "MongoDB"],
-        reponse_correct: [0,1,2],
+        reponse_correct: [0, 1, 2],
       },
       {
         type: "single",
@@ -212,18 +238,18 @@ const data = [
         type: "multiple",
         question: "Quelles sont des opérations CRUD ?",
         reponses: ["Create", "Read", "Update", "Delete", "Drop"],
-        reponse_correct: [0,1,2,3],
+        reponse_correct: [0, 1, 2, 3],
       },
       {
         type: "single",
-        question: "Quel moteur MySQL est le plus utilisé pour les transactions ?",
+        question:
+          "Quel moteur MySQL est le plus utilisé pour les transactions ?",
         reponses: ["InnoDB", "MyISAM", "Memory", "CSV"],
         reponse_correct: [0],
       },
     ],
   },
 ];
-
 
 const usernameInput = document.getElementById("usernameInput");
 const categories = document.querySelectorAll(".cat");
@@ -233,13 +259,17 @@ const start = document.getElementById("startTest");
 const question = document.getElementById("question");
 const reponses = document.getElementById("reponses");
 const nextBtn = document.getElementById("nextBtn");
-// const submitBtn = document.getElementById("submitBtn");
+const submitBtn = document.getElementById("submitBtn");
 const time = document.getElementById("time");
 const username = document.getElementById("username");
 const currentQuestion = document.getElementById("currentQuestion");
 const nbrQuestions = document.getElementById("nbrQuestions");
 const result = document.getElementById("result");
-const scorefinale = document.getElementById("scoreFinale")
+const scoreFinale = document.getElementById("scoreFinale");
+const total = document.getElementById("totalQuestions");
+const feedback = document.querySelector("#feedBack");
+const finalResult = document.querySelector("#finalResult");
+const recommancerBtn = document.querySelector("#recommancerBtn");
 let currentIndex = 0;
 let selectedQuestions = [];
 let timerQuestion;
@@ -251,7 +281,7 @@ categories.forEach((cat) => {
   cat.addEventListener("click", () => {
     // console.log("i am clicked");
     const username = usernameInput.value.trim();
-    console.log(username);
+
     if (username === "") {
       errorMsg.style.display = "block";
     } else {
@@ -261,20 +291,19 @@ categories.forEach((cat) => {
       start.classList.remove("active");
       const selectedCat = cat.textContent.trim();
       selectedCategory = selectedCat;
-      console.log("la categoie choisie :", selectedCat);
+      // console.log("la categoie choisie :", selectedCat);
       const selectedData = data.find((d) => d.categorie === selectedCat);
       selectedQuestions = selectedData.questions;
       nbrQuestions.textContent = selectedQuestions.length;
-      quizHistorique.push(
-        {
-          username : username,
-          categorie : selectedCategory,
-          // questions : selectedQuestions,
-          reponses : [],
-          date : new Date().toLocaleDateString(),
-        }
-      );
-      // console.log("les questions",selectedQuestions);
+      total.textContent = selectedQuestions.length;
+      quizHistorique.push({
+        username: username,
+        categorie: selectedCategory,
+        // questions : selectedQuestions,
+        reponses: [],
+        date: new Date().toLocaleDateString(),
+        score: score,
+      });
       if (selectedData) {
         showQuestions(selectedQuestions, currentIndex);
       }
@@ -288,7 +317,7 @@ function showQuestions(questionArray, index) {
   reponses.innerHTML = "";
 
   const qest = questionArray[index];
-  currentQuestion.textContent = index;
+  currentQuestion.textContent = index + 1;
   question.textContent = qest.question;
   qest.reponses.forEach((rep, i) => {
     const input = document.createElement("input");
@@ -303,105 +332,157 @@ function showQuestions(questionArray, index) {
     label.textContent = rep;
     label.classList.add("answer");
     input.addEventListener("click", () => {
-      // console.log(input.type);
-      if ((input.type === "radio")) {
-        // console.log("inside if")
-        document.querySelectorAll(".answer").forEach((label) => label.classList.remove("selected"));
+      if (input.type === "radio") {
+        document
+          .querySelectorAll(".answer")
+          .forEach((label) => label.classList.remove("selected"));
         label.classList.add("selected");
-      }else{
-        // console.log("inside else");
+      } else {
         label.classList.toggle("selected");
       }
       nextBtn.disabled = false;
-    });  
+    });
 
     label.appendChild(input);
     reponses.appendChild(label);
   });
   stopTimer(timerQuestion);
-  timerQuestion = timer(10);
+  timerQuestion = timer(4);
 }
+username.textContent = localStorage.getItem("username");
 
 nextBtn.addEventListener("click", () => {
+  const currentQuestionData = selectedQuestions[currentIndex];
+
+  const selectedRes = reponses.querySelectorAll(".ResInput:checked");
+  const userChoices = [];
+  selectedRes.forEach((input) => {
+    userChoices.push(parseInt(input.getAttribute("data-resIndex")));
+  });
+
+  const correctAnswers = [...currentQuestionData.reponse_correct].sort(
+    (a, b) => a - b
+  );
+  const sortedUserChoices = [...userChoices].sort((a, b) => a - b);
+  const isCorrect =
+    correctAnswers.length === sortedUserChoices.length &&
+    correctAnswers.every((val, i) => val === sortedUserChoices[i]);
+
+  if (isCorrect) score++;
+
+  quizHistorique[quizHistorique.length - 1].reponses.push({
+    quest: currentQuestionData.question,
+    reponseChosie: userChoices.length
+      ? userChoices.map((i) => currentQuestionData.reponses[i])
+      : ["No Answer"],
+    reponseCorrect: correctAnswers.map((i) => currentQuestionData.reponses[i]),
+  });
+
   if (currentIndex < selectedQuestions.length - 1) {
     currentIndex++;
     stopTimer(timerQuestion);
     nextBtn.disabled = true;
-
-    if(checkAnswer(selectedQuestions, currentIndex)){
-      score++;
-    };
     showQuestions(selectedQuestions, currentIndex);
-
   } else {
+    stopTimer(timerQuestion);
+    nextBtn.style.display = "none";
     submitBtn.style.display = "block";
     quizHistorique[quizHistorique.length - 1].score = score;
+    // const responses = reponses.querySelector(".ResInput");
+    // responses.classList.add
   }
 });
 
-function timer(count){
-  let t = setInterval(function(){
-    // console.log(count);
-    time.textContent= count;
+function timer(count) {
+  let t = setInterval(function () {
+    time.textContent = count;
     count--;
-    if(count < 0){
+    if (count < 0) {
       stopTimer(t);
       nextBtn.disabled = false;
       nextBtn.click();
     }
-  },1000);
+  }, 1000);
   return t;
 }
 
-function stopTimer(timer){
-  clearInterval(timer)
+function stopTimer(timer) {
+  clearInterval(timer);
 }
 
-username.textContent = localStorage.getItem("username");
-
-// userAnswers.push({
-//   categorie: selectedCategory,
-//   rep : [
-//     // question : 
-//   ]
-// })
-
-submitBtn.addEventListener("click", ()=>{
+submitBtn.addEventListener("click", () => {
   questions.classList.remove("active");
   result.classList.add("active");
-   quizHistorique.push(
-        {
-          username : username,
-          categorie : selectedCategory,
-          // questions : selectedQuestions,
-          reponses : [
+  localStorage.setItem("historique", JSON.stringify(quizHistorique));
+  const history = JSON.parse(localStorage.getItem("historique"));
+  dernierQuiz = history[history.length - 1];
+  console.log(dernierQuiz);
+  scoreFinale.textContent = dernierQuiz.score;
+  totalQuest = total.textContent;
+  feedback.innerHTML = feedBack(dernierQuiz.score, totalQuest);
+  showResult(dernierQuiz);
+});
 
-          ],
-          date : new Date().toLocaleDateString(),
-        }
-      );
-})
-
-function checkAnswer(questions, index){
+function checkAnswer(questions, index) {
   let selectedRes = reponses.querySelectorAll(".ResInput:checked");
   let slectResponsesValue = [];
-  selectedRes.forEach((val)=>{
+  selectedRes.forEach((val) => {
     slectResponsesValue.push(val.value);
-  })
-  console.log("selected reponses", slectResponsesValue);
-  let answers = [] ;
-  // let answer = selectedRes[0].parentElement;
+  });
   for (let i = 0; i < slectResponsesValue.length; i++) {
-    let answer = slectResponsesValue[i].getAttribute("data-ResIndex");
-    console.log("repose",answer);
+    let answer = selectedRes[i].getAttribute("data-ResIndex");
     for (let j = 0; j < questions[index].reponse_correct.length; j++) {
-      if(questions[index].reponse_correct[j] != answer){
+      if (questions[index].reponse_correct[j] != answer) {
         return false;
       }
     }
   }
-  quizHistorique[quizHistorique.length - 1].reponses.push(slectResponsesValue)
   return true;
 }
 
-// checkAnswer(selectedQuestions, currentIndex);
+function feedBack(score, total) {
+  if (score === total) {
+    return "Excellent ! Vous avez tout juste, bravo";
+  } else if (score >= total * 0.7) {
+    return "Très bien ! Vous maîtrisez presque tout ";
+  } else if (score >= total * 0.4) {
+    return "Pas mal, mais vous pouvez encore progresser";
+  } else {
+    return "Il faut réviser, ne vous découragez pas";
+  }
+}
+
+function showResult(quiz) {
+  finalResult.innerHTML = "";
+  quiz.reponses.forEach((reponse, i) => {
+    const divResult = document.createElement("div");
+    divResult.classList.add("divResult");
+    const questionResult = document.createElement("p");
+    questionResult.innerHTML = `<p><span class="questRes">Question ${
+      i + 1
+    }:</span> ${reponse.quest}<p>`;
+    questionResult.id = "questRes";
+
+    const divReponsesResult = document.createElement("div");
+    divReponsesResult.innerHTML = `<strong>Votre réponse :</strong> ${reponse.reponseChosie}`;
+    divReponsesResult.id = "divReponsesResultId";
+
+    const repCorretResult = document.createElement("p");
+    repCorretResult.innerHTML = `<strong>Bonne réponse :</strong> ${reponse.reponseCorrect}`;
+
+    divResult.appendChild(questionResult);
+    divResult.appendChild(divReponsesResult);
+    divResult.appendChild(repCorretResult);
+
+    finalResult.appendChild(divResult);
+  });
+}
+
+recommancerBtn.addEventListener("click", () => {
+  result.classList.remove("active");
+  start.classList.add("active");
+  usernameInput.value = localStorage.getItem("username");
+  currentIndex = 0;
+  nextBtn.style.display = "block";
+  submitBtn.style.display = "none";
+});

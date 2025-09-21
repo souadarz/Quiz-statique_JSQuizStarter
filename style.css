@@ -5,10 +5,11 @@
 }
 
 body{
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px; 
 }
 .container{
     text-align: center;
@@ -77,7 +78,7 @@ body{
     background: rgb(233, 111, 233);
 } */
 
-p{
+#startTest p{
     font-size: 20px;
     margin-top: 10px;
     /* margin-bottom: 25px; */
@@ -93,7 +94,7 @@ p{
 #question{
     margin-bottom: 25px;
     margin-top: 10px;
-    font-size: 35px;
+    font-size: 2rem;
 }
 
 .testInfo{
@@ -119,7 +120,7 @@ p{
     gap: 10px;
     padding: 12px;
     border: none;
-    background: rgb(210, 80, 190);
+    background: rgb(190, 49, 205);
     color: white;
     cursor: pointer;
     border-radius: 5px;
@@ -166,7 +167,66 @@ p{
     background: rgb(114, 5, 98);
 }
 
-#result p{
-    font-size: 30px;
+/* #result p{
+    font-size: 20px;
     margin-top: 10px;
+} */
+#quizTermine{
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+#feedBack{
+    font-size: 20px;
+    /* color: hsl(58, 93%, 51%); */
+    color: rgb(246, 210, 5);
+    margin-bottom: 10px;
+}
+
+#scoreResult{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+#finalResult{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    /* grid-template-rows: repeat(auto-fit, minmax(260px, 1fr)); */
+    gap: 15px;
+    padding: 10px;
+}
+
+.divResult{
+    border: solid 2px rgb(190, 49, 205);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+#divReponsesResultId{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.questRes{
+    font-weight: bold;
+    color: rgb(246, 210, 5);
+}
+
+#recommancerBtn{
+    padding: 10px;
+    border-radius: 15px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+@media screen and (max-width: 426px){
+    .container{
+        width: 100%;
+    }
+    #finalResult{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    }
 }
