@@ -159,7 +159,6 @@ body{
     margin-top: 20px;
     cursor: pointer;
     font-size: 15px;
-    /* background: violet; */
     display: none;
 }
 
@@ -178,7 +177,6 @@ body{
 
 #feedBack{
     font-size: 20px;
-    /* color: hsl(58, 93%, 51%); */
     color: rgb(246, 210, 5);
     margin-bottom: 10px;
 }
@@ -191,7 +189,6 @@ body{
 #finalResult{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    /* grid-template-rows: repeat(auto-fit, minmax(260px, 1fr)); */
     gap: 15px;
     padding: 10px;
 }
