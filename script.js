@@ -301,7 +301,7 @@ categories.forEach((cat) => {
         categorie: selectedCategory,
         // questions : selectedQuestions,
         reponses: [],
-        date: new Date().toLocaleDateString(),
+        date: new Date().toLocaleString(),
         score: score,
       });
       if (selectedData) {
@@ -312,7 +312,6 @@ categories.forEach((cat) => {
 });
 
 function showQuestions(questionArray, index) {
-  // console.log("inside showQuestion fct");
   question.innerHTML = "";
   reponses.innerHTML = "";
 
@@ -413,10 +412,13 @@ function stopTimer(timer) {
 submitBtn.addEventListener("click", () => {
   questions.classList.remove("active");
   result.classList.add("active");
+  const history = JSON.parse(localStorage.getItem("historique")) || [];
   localStorage.setItem("historique", JSON.stringify(quizHistorique));
-  const history = JSON.parse(localStorage.getItem("historique"));
-  dernierQuiz = history[history.length - 1];
+  console.log("historrique:", quizHistorique);
+  console.log("histo", history);
+  dernierQuiz = history[history.length - 1]; 
   console.log(dernierQuiz);
+  history.push(dernierQuiz);
   scoreFinale.textContent = dernierQuiz.score;
   totalQuest = total.textContent;
   feedback.innerHTML = feedBack(dernierQuiz.score, totalQuest);
@@ -458,9 +460,7 @@ function showResult(quiz) {
     const divResult = document.createElement("div");
     divResult.classList.add("divResult");
     const questionResult = document.createElement("p");
-    questionResult.innerHTML = `<p><span class="questRes">Question ${
-      i + 1
-    }:</span> ${reponse.quest}<p>`;
+    questionResult.innerHTML = `<p><span class="questRes">Question ${i + 1}:</span> ${reponse.quest}<p>`;
     questionResult.id = "questRes";
 
     const divReponsesResult = document.createElement("div");
@@ -483,6 +483,7 @@ recommancerBtn.addEventListener("click", () => {
   start.classList.add("active");
   usernameInput.value = localStorage.getItem("username");
   currentIndex = 0;
+  score = 0;
   nextBtn.style.display = "block";
   submitBtn.style.display = "none";
 });
