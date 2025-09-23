@@ -279,27 +279,24 @@ let selectedCategory = "";
 
 categories.forEach((cat) => {
   cat.addEventListener("click", () => {
-    // console.log("i am clicked");
-    const username = usernameInput.value.trim();
+    const usernameValue = usernameInput.value.trim();
 
-    if (username === "") {
+    if (usernameValue === "") {
       errorMsg.style.display = "block";
     } else {
-      localStorage.setItem("username", username);
+      username.textContent = usernameValue;
       errorMsg.style.display = "none";
       questions.classList.add("active");
       start.classList.remove("active");
       const selectedCat = cat.textContent.trim();
       selectedCategory = selectedCat;
-      // console.log("la categoie choisie :", selectedCat);
       const selectedData = data.find((d) => d.categorie === selectedCat);
       selectedQuestions = selectedData.questions;
       nbrQuestions.textContent = selectedQuestions.length;
       total.textContent = selectedQuestions.length;
       quizHistorique.push({
-        username: username,
+        username: usernameValue,
         categorie: selectedCategory,
-        // questions : selectedQuestions,
         reponses: [],
         date: new Date().toLocaleString(),
         score: score,
@@ -332,8 +329,7 @@ function showQuestions(questionArray, index) {
     label.classList.add("answer");
     input.addEventListener("click", () => {
       if (input.type === "radio") {
-        document
-          .querySelectorAll(".answer")
+        document.querySelectorAll(".answer")
           .forEach((label) => label.classList.remove("selected"));
         label.classList.add("selected");
       } else {
@@ -348,7 +344,6 @@ function showQuestions(questionArray, index) {
   stopTimer(timerQuestion);
   timerQuestion = timer(4);
 }
-username.textContent = localStorage.getItem("username");
 
 nextBtn.addEventListener("click", () => {
   const currentQuestionData = selectedQuestions[currentIndex];
@@ -371,9 +366,7 @@ nextBtn.addEventListener("click", () => {
 
   quizHistorique[quizHistorique.length - 1].reponses.push({
     quest: currentQuestionData.question,
-    reponseChosie: userChoices.length
-      ? userChoices.map((i) => currentQuestionData.reponses[i])
-      : ["No Answer"],
+    reponseChosie: userChoices.length ? userChoices.map((i) => currentQuestionData.reponses[i]): ["No Answer"],
     reponseCorrect: correctAnswers.map((i) => currentQuestionData.reponses[i]),
   });
 
@@ -412,35 +405,20 @@ function stopTimer(timer) {
 submitBtn.addEventListener("click", () => {
   questions.classList.remove("active");
   result.classList.add("active");
-  const history = JSON.parse(localStorage.getItem("historique")) || [];
+
+  const history = quizHistorique;
+  
   localStorage.setItem("historique", JSON.stringify(quizHistorique));
-  console.log("historrique:", quizHistorique);
-  console.log("histo", history);
-  dernierQuiz = history[history.length - 1]; 
-  console.log(dernierQuiz);
+  // console.log("historrique:", quizHistorique);
+  // console.log("histo", history);
+  let dernierQuiz = history[history.length - 1]; 
+  // console.log(dernierQuiz);
   history.push(dernierQuiz);
   scoreFinale.textContent = dernierQuiz.score;
   totalQuest = total.textContent;
   feedback.innerHTML = feedBack(dernierQuiz.score, totalQuest);
   showResult(dernierQuiz);
 });
-
-function checkAnswer(questions, index) {
-  let selectedRes = reponses.querySelectorAll(".ResInput:checked");
-  let slectResponsesValue = [];
-  selectedRes.forEach((val) => {
-    slectResponsesValue.push(val.value);
-  });
-  for (let i = 0; i < slectResponsesValue.length; i++) {
-    let answer = selectedRes[i].getAttribute("data-ResIndex");
-    for (let j = 0; j < questions[index].reponse_correct.length; j++) {
-      if (questions[index].reponse_correct[j] != answer) {
-        return false;
-      }
-    }
-  }
-  return true;
-}
 
 function feedBack(score, total) {
   if (score === total) {
@@ -460,8 +438,7 @@ function showResult(quiz) {
     const divResult = document.createElement("div");
     divResult.classList.add("divResult");
     const questionResult = document.createElement("p");
-    questionResult.innerHTML = `<p><span class="questRes">Question ${i + 1}:</span> ${reponse.quest}<p>`;
-    questionResult.id = "questRes";
+    questionResult.innerHTML = `<span class="questRes">Question ${i + 1}:</span> ${reponse.quest}`;
 
     const divReponsesResult = document.createElement("div");
     divReponsesResult.innerHTML = `<strong>Votre réponse :</strong> ${reponse.reponseChosie}`;
